@@ -1,0 +1,33 @@
+{
+  "name": "express-session-sequelize",
+  "version": "1.0.0",
+  "description": "Express session store using Sequelize to persist session data.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/.bin/mocha --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/traclabs/express-session-sequelize.git"
+  },
+  "keywords": [
+    "express",
+    "session",
+    "sequelize",
+    "store"
+  ],
+  "author": "Shawn McGinty <shawn@traclabs.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/traclabs/express-session-sequelize/issues"
+  },
+  "homepage": "https://github.com/traclabs/express-session-sequelize#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "express-session": "^1.14.1",
+    "mocha": "^3.0.2",
+    "sequelize": "^3.24.3",
+    "sinon": "^1.17.6",
+    "sqlite3": "^3.1.4"
+  }
+}

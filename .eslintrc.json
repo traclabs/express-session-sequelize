@@ -1,0 +1,17 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+        	"impliedStrict": true,
+            "jsx": false
+        }
+    },
+    "rules": {
+        "semi": [ "error", "always" ]
+    },
+    "env": {
+    	"node": true,
+    	"mocha": true
+    }
+}
