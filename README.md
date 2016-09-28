@@ -1,7 +1,3 @@
-//TODO: npm install --saveDev epress-session
-// also TODO: update License file and package json to reflect real ownership (traclabs instead of shawn mcginty)
-// also add tests for the exception if no db is passed in
-
 # express-session-sequelize
 Express session store using Sequelize to persist session data.
 
