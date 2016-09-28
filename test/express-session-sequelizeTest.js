@@ -28,6 +28,16 @@ describe('express-session-sequelize', () => {
 		assert.isDefined(sessionStore);
 	});
 
+	it('throws exception if no sequelize instance is passed in', () => {
+		const SessionStore = expressSessionSequelize(expressSession.Store);
+		expect(() => new SessionStore({})).to.throw('No sequelize instance passed in.');
+	});
+
+	it('throws exception if no options passed in', () => {
+		const SessionStore = expressSessionSequelize(expressSession.Store);
+		expect(() => new SessionStore()).to.throw('Options with valid sequelize instance required.');
+	});
+
 	describe('#get()', () => {
 		const SessionStore = expressSessionSequelize(expressSession.Store);
 		let sessionStore = null;
