@@ -43,7 +43,7 @@ Full list of options that can be passed in while instanciating the session store
 
 ```javascript
 const options = {
-	db, // Valid Sequelize instance
+	db, // Valid Sequelize instance **required
 	checkExpirationInterval, // How often expired sessions are purged in milliseconds.  (Default: 15 minutes)
 	expiration, // How long until inactive sessions expire in milliseconds. (Default: 24 hours)
 };
