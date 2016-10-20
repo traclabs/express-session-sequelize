@@ -46,7 +46,7 @@ describe('express-session-sequelize', () => {
 			sessionStore = new SessionStore({db});
 			return sessionStore.Session.findOrCreate({
 				where: {
-					sid: 'test777',
+					'session_id': 'test777',
 					data: JSON.stringify({expected: 'data'})
 				}
 			});
@@ -56,7 +56,7 @@ describe('express-session-sequelize', () => {
 			sessionStore = new SessionStore({db});
 			return sessionStore.Session.destroy({
 				where: {
-					sid: 'test777',
+					'session_id': 'test777',
 				}
 			});
 		});
@@ -83,7 +83,7 @@ describe('express-session-sequelize', () => {
 			sessionStore = new SessionStore({db});
 			return sessionStore.Session.destroy({
 				where: {
-					sid: 'test777',
+					'session_id': 'test777',
 				}
 			});
 		});
@@ -92,7 +92,7 @@ describe('express-session-sequelize', () => {
 			sessionStore = new SessionStore({db});
 			return sessionStore.Session.destroy({
 				where: {
-					sid: 'test777',
+					'session_id': 'test777',
 				}
 			});
 		});
@@ -116,7 +116,7 @@ describe('express-session-sequelize', () => {
 			sessionStore = new SessionStore({db});
 			return sessionStore.Session.findOrCreate({
 				where: {
-					sid: 'test777',
+					'session_id': 'test777',
 					data: JSON.stringify({expected: 'data'})
 				}
 			});
@@ -126,7 +126,7 @@ describe('express-session-sequelize', () => {
 			sessionStore = new SessionStore({db});
 			return sessionStore.Session.destroy({
 				where: {
-					sid: 'test777',
+					'session_id': 'test777',
 				}
 			});
 		});
@@ -135,7 +135,7 @@ describe('express-session-sequelize', () => {
 			assert.isDefined(sessionStore.destroy);
 		});
 
-		it('removes session with matching sid from database', () => {
+		it('removes session with matching session_id from database', () => {
 			return sessionStore.destroy('test777', () => {})
 				.then(() => sessionStore.Session.findById('test777'))
 				.then(session => expect(session).to.equal.null);
@@ -150,7 +150,7 @@ describe('express-session-sequelize', () => {
 			sessionStore = new SessionStore({db});
 			return sessionStore.Session.findOrCreate({
 				where: {
-					sid: 'test777',
+					'session_id': 'test777',
 					data: JSON.stringify({expected: 'data'})
 				}
 			});
@@ -160,7 +160,7 @@ describe('express-session-sequelize', () => {
 			sessionStore = new SessionStore({db});
 			return sessionStore.Session.destroy({
 				where: {
-					sid: 'test777',
+					'session_id': 'test777',
 				}
 			});
 		});
