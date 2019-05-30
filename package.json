@@ -1,6 +1,6 @@
 {
   "name": "express-session-sequelize",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Express session store using Sequelize to persist session data.",
   "main": "index.js",
   "scripts": {
