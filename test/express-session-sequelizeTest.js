@@ -138,7 +138,7 @@ describe('express-session-sequelize', () => {
 
 		it('creates a session model from input data', () => {
 			return sessionStore.set('test777', {}, () => {})
-				.then(() => sessionStore.Session.findById('test777'))
+				.then(() => sessionStore.Session.findByPk('test777'))
 				.then(session => expect(session).to.not.equal.null);
 		});
 	});
@@ -172,7 +172,7 @@ describe('express-session-sequelize', () => {
 
 		it('removes session with matching session_id from database', () => {
 			return sessionStore.destroy('test777', () => {})
-				.then(() => sessionStore.Session.findById('test777'))
+				.then(() => sessionStore.Session.findByPk('test777'))
 				.then(session => expect(session).to.equal.null);
 		});
 	});
@@ -206,7 +206,7 @@ describe('express-session-sequelize', () => {
 
 		it('updates expiration date of session', () => {
 			return sessionStore.touch('test777', {}, () => {})
-				.then(() => sessionStore.Session.findById('test777'))
+				.then(() => sessionStore.Session.findByPk('test777'))
 				.then(session => expect(session).to.have
 					.property('expires').and.to.be.greaterThan(Date.now()));
 		});
