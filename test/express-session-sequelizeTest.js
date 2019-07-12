@@ -75,6 +75,41 @@ describe('express-session-sequelize', () => {
 		});
 	});
 
+	describe('#getAll()', () => {
+		const SessionStore = expressSessionSequelize(expressSession.Store);
+		let sessionStore = null;
+
+		beforeEach(() => {
+			sessionStore = new SessionStore({db});
+			return sessionStore.Session.findOrCreate({
+				where: {
+					'session_id': 'test777',
+					data: JSON.stringify({expected: 'data'}),
+				}
+			});
+		});
+
+		afterEach(() => {
+			sessionStore = new SessionStore({db});
+			return sessionStore.Session.destroy({
+				where: {
+					'session_id': 'test777',
+				}
+			});
+		});
+
+		it('is defined', () => {
+			assert.isDefined(sessionStore.getAll);
+		});
+
+		it('gets all sessions', () => {
+			return sessionStore.getAll((err, sessions) => {
+				expect(err).to.be.null;
+				expect(sessions.length).to.equal(1);
+			});
+		});
+	});
+
 	describe('#set()', () => {
 		const SessionStore = expressSessionSequelize(expressSession.Store);
 		let sessionStore = null;
