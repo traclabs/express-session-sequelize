@@ -211,4 +211,39 @@ describe('express-session-sequelize', () => {
 					.property('expires').and.to.be.greaterThan(Date.now()));
 		});
 	});
+
+	describe('#clearExpiredSessions()', () => {
+		const SessionStore = expressSessionSequelize(expressSession.Store);
+		let sessionStore = null;
+
+		beforeEach(() => {
+			sessionStore = new SessionStore({db});
+			return sessionStore.Session.findOrCreate({
+				where: {
+					'session_id': 'test777',
+					data: JSON.stringify({expected: 'data'}),
+					expires: (new Date() - 1000),
+				}
+			});
+		});
+
+		afterEach(() => {
+			sessionStore = new SessionStore({db});
+			return sessionStore.Session.destroy({
+				where: {
+					'session_id': 'test777',
+				}
+			});
+		});
+
+		it('is defined', () => {
+			assert.isDefined(sessionStore.clearExpiredSessions);
+		});
+
+		it('deletes expired sessions', () => {
+			return sessionStore.clearExpiredSessions()
+				.then(() => sessionStore.Session.findByPk('test777'))
+				.then(session => expect(session).to.be.null);
+		});
+	});
 });
