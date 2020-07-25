@@ -1,6 +1,8 @@
 # express-session-sequelize
 Express session store using Sequelize to persist session data.
 
+[![npm version](https://badge.fury.io/js/express-session-sequelize.svg)](https://badge.fury.io/js/express-session-sequelize)
+
 ## Usage
 The session store must first be initialized by passing in `expressSession.Store`
 
